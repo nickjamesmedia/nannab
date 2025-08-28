@@ -19,65 +19,66 @@
   <link rel="icon" href="assets/favicon.ico" />
 
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Pacifico&family=Urbanist:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg:#fffdf8; --ink:#2a241f; --accent:#a76d3e; --accent-ink:#fff; --muted:#7b6a5c; --card:#ffffff;
-    }
-    html {scroll-behavior:smooth}
-    body {margin:0; font:16px/1.6 'Urbanist', 'Cabin', system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; color:var(--ink); background:var(--bg)}
-    .container {max-width:1100px; margin:0 auto; padding:24px}
+    :root { --bg:#fffdf8; --ink:#2a241f; --accent:#a76d3e; --accent-ink:#fff; --muted:#7b6a5c; --card:#ffffff; }
+    html { scroll-behavior:smooth }
+    body { margin:0; font:16px/1.6 'Urbanist','Cabin',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; color:var(--ink); background:var(--bg) }
+    .container { max-width:1100px; margin:0 auto; padding:24px }
 
     /* HEADER LAYOUT */
-    header {padding:36px 0}
-    header h1{font-family:'Pacifico', cursive; font-size:clamp(36px,6vw,64px); margin:0 0 8px; text-align:center; letter-spacing:.2px}
-    header .sub{color:var(--muted); font-family:'Urbanist', sans-serif; font-weight:300; font-size:clamp(14px,2.2vw,18px); text-align:center; margin-bottom:20px}
-    .header-wrap{display:grid; gap:20px}
-    @media(min-width:900px){ .header-wrap{ grid-template-columns: 1.15fr .9fr .9fr; align-items:center; } }
+    header { padding:36px 0 }
+    header h1 { font-family:'Pacifico', cursive; font-size:clamp(36px,6vw,64px); margin:0 0 8px; text-align:center; letter-spacing:.2px }
+    header .sub { color:var(--muted); font-family:'Urbanist', sans-serif; font-weight:300; font-size:clamp(14px,2.2vw,18px); text-align:center; margin-bottom:20px }
+    .header-wrap { display:grid; gap:20px }
+    @media(min-width:900px){ .header-wrap{ grid-template-columns:1.15fr .9fr .9fr; align-items:center; } }
 
-    .card{background:transparent; border:0; border-radius:0; box-shadow:none; padding:0}
+    .card { background:transparent; border:0; border-radius:0; box-shadow:none; padding:0 }
 
     /* Left card: photo + bio */
-    .bio {display:grid; grid-template-columns:1fr; gap:4px; align-items:start; grid-auto-rows:min-content; align-self:center;}  
-    .bio figure{margin:0; overflow:hidden; border-radius:16px; border:2px solid #e9dfd5; width:min(100%,260px); max-width:260px; max-height:260px; aspect-ratio:1/1; justify-self:start; align-self:start;}    
-    .bio img{width:100%; height:100%; display:block; object-fit:cover; object-position:left bottom;}    
-    .bio p{margin:2px 0 0; line-height:1.35; font-family:'Urbanist', sans-serif;}
+    .bio { display:grid; grid-template-columns:1fr; gap:4px; align-items:start; grid-auto-rows:min-content; align-self:center; }
+    .bio figure { margin:0; overflow:hidden; border-radius:16px; border:2px solid #e9dfd5; width:min(100%,260px); max-width:260px; max-height:260px; aspect-ratio:1/1; justify-self:start; align-self:start; }
+    .bio img { width:100%; height:100%; display:block; object-fit:cover; object-position:left bottom; }
+    .bio p { margin:2px 0 0; line-height:1.35; font-family:'Urbanist', sans-serif; }
 
     /* Right card: brands */
-    .brands{display:grid; grid-template-columns:1fr; gap:20px}
-    @media(min-width:520px){ .brands{grid-template-columns:1fr} }
-    .brand{display:grid; justify-items:center; align-self:center; gap:14px; text-align:center; width:100%} 
-    .brand .btn{width:clamp(140px,18vw,220px); margin:0 auto; }
-    .logo-circle{width:clamp(180px,24vw,280px); height:clamp(180px,24vw,280px); border-radius:50%; overflow:hidden; display:grid; place-items:center; background:#fff; border:2px solid #e9dfd5; box-shadow:0 10px 26px rgba(0,0,0,.08); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease}
-    .logo-circle img{width:100%; height:100%; object-fit:cover}
-    .logo-circle:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 16px 32px rgba(0,0,0,.12)}
-    .logo-circle.pressed{transform:scale(.97)}
+    .brands { display:grid; grid-template-columns:1fr; gap:20px }
+    @media(min-width:520px){ .brands{ grid-template-columns:1fr } }
+    .brand { display:grid; justify-items:center; align-self:center; gap:14px; text-align:center; width:100% }
+    .brand .btn { width:clamp(140px,18vw,220px); margin:0 auto; }
+    .logo-circle { width:clamp(220px,28vw,340px); height:clamp(220px,28vw,340px); border-radius:50%; overflow:hidden; display:grid; place-items:center; background:#fff; border:2px solid #e9dfd5; box-shadow:0 10px 26px rgba(0,0,0,.08); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease }
+    .logo-circle img { width:100%; height:100%; object-fit:cover }
+    .logo-circle:hover { transform:translateY(-2px) scale(1.03); box-shadow:0 16px 32px rgba(0,0,0,.12) }
+    .logo-circle.pressed { transform:scale(.97) }
 
     /* Buttons under each logo */
-    .btn{display:inline-block; border:1px solid var(--accent); color:var(--accent-ink); background:var(--accent); padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:700; letter-spacing:.2px; transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease; font-family:'Urbanist', sans-serif}
-    .btn:hover{box-shadow:0 10px 22px rgba(0,0,0,.12); transform:translateY(-1px)}
-    .btn:active, .btn.pressed{transform:translateY(0) scale(.98); box-shadow:0 4px 12px rgba(0,0,0,.10)}
-    .btn.alt{background:transparent; color:var(--accent);}
+    .btn { display:inline-block; border:1px solid var(--accent); color:var(--accent-ink); background:var(--accent); padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:700; letter-spacing:.2px; transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease; font-family:'Urbanist', sans-serif }
+    .btn:hover { box-shadow:0 10px 22px rgba(0,0,0,.12); transform:translateY(-1px) }
+    .btn:active, .btn.pressed { transform:translateY(0) scale(.98); box-shadow:0 4px 12px rgba(0,0,0,.10) }
+    .btn.alt { background:transparent; color:var(--accent); }
 
-    section{padding:40px 0; border-top:1px solid #eee}
-    h2{font-family:'Urbanist', sans-serif; font-weight:700; font-size:28px; margin:0 0 8px; letter-spacing:.2px}
-    h3{font-family:'Urbanist', sans-serif; font-weight:700; margin:24px 0 8px; font-size:22px; letter-spacing:.2px}
-    .grid{display:grid; grid-template-columns:1fr; gap:20px}
-    @media(min-width:820px){ .grid{grid-template-columns:2fr 1fr} }
-    ul{padding-left:18px; font-family:'Urbanist', sans-serif;}
-    footer{padding:48px 0; text-align:left; color:var(--muted); font-family:'Urbanist', sans-serif; border-top:1px solid #eee;}
-    .footer-grid{display:grid; gap:18px}
-    @media(min-width:820px){ .footer-grid{grid-template-columns:1fr 1fr; align-items:start} }
-    .footer-col h4{margin:0 0 8px; font-family:'Urbanist', sans-serif; font-weight:700; color:var(--ink); font-size:16px}
-    .footer-links{list-style:none; padding:0; margin:0}
-    .footer-links li{margin:6px 0}
-    .footer-links a{text-decoration:none; color:var(--ink)}
-    .footer-links a:hover{text-decoration:underline}
-    .legal{margin-top:12px; font-size:14px; color:var(--muted)}
-    .note{background:#fff7e9; border:1px solid #f2e2c9; padding:12px 16px; border-radius:12px; font-family:'Urbanist', sans-serif;}
-    .disclaimer{font-size:13px; color:var(--muted); margin-top:8px; line-height:1.35;} 
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+    section { padding:40px 0; border-top:1px solid #eee }
+    h2 { font-family:'Urbanist', sans-serif; font-weight:700; font-size:28px; margin:0 0 8px; letter-spacing:.2px }
+    h3 { font-family:'Urbanist', sans-serif; font-weight:700; margin:24px 0 8px; font-size:22px; letter-spacing:.2px }
+    .grid { display:grid; grid-template-columns:1fr; gap:20px }
+    @media(min-width:820px){ .grid{ grid-template-columns:2fr 1fr } }
+    ul { padding-left:18px; font-family:'Urbanist', sans-serif; }
+    footer { padding:48px 0; text-align:left; color:var(--muted); font-family:'Urbanist', sans-serif; border-top:1px solid #eee; }
+    .footer-grid { display:grid; gap:18px }
+    @media(min-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; align-items:start } }
+    .footer-col h4 { margin:0 0 8px; font-family:'Urbanist', sans-serif; font-weight:700; color:var(--ink); font-size:16px }
+    .footer-links { list-style:none; padding:0; margin:0 }
+    .footer-links li { margin:6px 0 }
+    .footer-links a { text-decoration:none; color:var(--ink) }
+    .footer-links a:hover { text-decoration:underline }
+    .legal { margin-top:12px; font-size:14px; color:var(--muted) }
+    .note { background:#fff7e9; border:1px solid #f2e2c9; padding:12px 16px; border-radius:12px; font-family:'Urbanist', sans-serif; }
+    .disclaimer { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.35; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+
     /* Sourdough theming */
     #sourdough{ --sd-bg:#F1E4D8; --sd-ink:#372819; --sd-accent:#DB7A2B; position:relative; background:var(--sd-bg); }
     #sourdough::before{ content:""; position:absolute; inset:0; background-image:url('assets/baking/nannabsourdough-header.png'); background-size:cover; background-position:center; opacity:.18; pointer-events:none; z-index:0; }
@@ -90,31 +91,25 @@
     .brand[aria-label="Nanna B’s Sourdough"] .btn{ background:#DB7A2B; border-color:#DB7A2B; color:#fff; }
     .brand[aria-label="Nanna B’s Sourdough"] .btn:hover{ filter:brightness(1.05); box-shadow:0 10px 22px rgba(219,122,43,.25); }
     .brand[aria-label="Nanna B’s Sourdough"] .btn:active, .brand[aria-label="Nanna B’s Sourdough"] .btn.pressed{ filter:brightness(0.97); box-shadow:0 4px 12px rgba(219,122,43,.22); }
-    /* Sourdough element cards: rounded boundaries + translucent off‑white */
-    #sourdough .card{ 
-      background: rgba(241,228,216,0.88); /* #F1E4D8 with transparency */
-      border: 2px solid var(--sd-accent); /* #DB7A2B */
-      border-radius: 18px;
-      padding: 16px 18px;
-      box-shadow: 0 6px 18px rgba(55,40,25,.10);
-      backdrop-filter: saturate(110%) blur(1px);
-    }
-    /* Bold brush-stroke borders top & bottom */
-    #sourdough::after{ content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
-      background:
-        radial-gradient(120% 24px at 50% 0, rgba(219,122,43,.95) 40%, rgba(219,122,43,0) 70%) top center,
-        radial-gradient(120% 24px at 50% 100%, rgba(219,122,43,.95) 40%, rgba(219,122,43,0) 70%) bottom center;
+    /* Sourdough element cards */
+    #sourdough .card{ background:rgba(241,228,216,0.88); border:2px solid var(--sd-accent); border-radius:18px; padding:16px 18px; box-shadow:0 6px 18px rgba(55,40,25,.10); backdrop-filter:saturate(110%) blur(1px); }
+    /* Brush-stroke borders */
+    #sourdough::after{ content:""; position:absolute; inset:0; pointer-events:none; z-index:0; background:
+      radial-gradient(120% 24px at 50% 0, rgba(219,122,43,.95) 40%, rgba(219,122,43,0) 70%) top center,
+      radial-gradient(120% 24px at 50% 100%, rgba(219,122,43,.95) 40%, rgba(219,122,43,0) 70%) bottom center;
       background-repeat:no-repeat; background-size:100% 22px, 100% 22px; mix-blend-mode:multiply; }
-
-  /* Sourdough card title spacing */
     #sourdough .card h2{ margin:4px 0 8px; }
-  /* Shared: section logo inline with title */
+
+    /* Section logos (default style) */
     .section-logo{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
     .section-logo h2{ margin:0; }
-    .section-logo-circle{ width:104px; height:104px; border-radius:50%; overflow:hidden; background:#fff; border:2px solid #e9dfd5; display:grid; place-items:center; }
+    .section-logo-circle{ width:148px; height:148px; border-radius:50%; overflow:hidden; background:#fff; border:2px solid #e9dfd5; display:grid; place-items:center; }
     .section-logo-circle img{ width:100%; height:100%; object-fit:contain; }
-    #sourdough .section-logo-circle{ border-color: var(--sd-accent); }
-    #sewing .section-logo-circle{ border:0; background:transparent; }
+    /* Override: use transparent PNG logos without mask/border in both sections */
+    #sourdough .section-logo-circle,
+    #sewing   .section-logo-circle{ border:0; background:transparent; border-radius:0; width:min(300px,100%); height:auto; display:block; }
+    #sourdough .section-logo-circle img,
+    #sewing   .section-logo-circle img{ width:100%; height:auto; object-fit:contain; display:block; }
 
     /* Pleat My Case theming */
     #sewing{ --pmc-ink:#000; --pmc-blue:#476B96; --pmc-accent:#00C790; --pmc-stroke:#D3B230; position:relative; background:#fff; }
@@ -124,45 +119,144 @@
       background-size:auto, cover; background-position:center; background-repeat:no-repeat; opacity:1; pointer-events:none; z-index:0; }
     #sewing .container{ position:relative; z-index:1; }
     #sewing h2, #sewing p, #sewing li, #sewing h3{ color:var(--pmc-ink); }
-    #sewing .card{ background: rgba(255,255,255,0.90); border: 2px solid var(--pmc-accent); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
-    #sewing .note{ border-color: var(--pmc-accent); background: rgba(255,255,255,.75); }
-    /* Top/bottom brush strokes (yellow) */
-    #sewing::after{ content:""; position:absolute; inset:0; pointer-events:none; z-index:0; background:
-      radial-gradient(120% 24px at 50% 0, rgba(211,178,48,.95) 40%, rgba(211,178,48,0) 70%) top center,
-      radial-gradient(120% 24px at 50% 100%, rgba(211,178,48,.95) 40%, rgba(211,178,48,0) 70%) bottom center;
-      background-repeat:no-repeat; background-size:100% 22px, 100% 22px; mix-blend-mode:multiply; }
-  /* Sewing: header text color */
-    #sewing h2{ color: var(--pmc-blue); }
-    /* Hero (header) sewing brand colors */
+    #sewing .card{ background:rgba(255,255,255,0.90); border:2px solid var(--pmc-accent); border-radius:18px; padding:16px 18px; box-shadow:0 6px 18px rgba(0,0,0,.08); }
+    #sewing .note{ border-color:var(--pmc-accent); background:rgba(255,255,255,.75); }
+    #sewing h2{ color:var(--pmc-blue); }
+    /* Hero sewing colors */
     .brand[aria-label="Pleat My Case"] .logo-circle{ border-color:#00C790; box-shadow:0 10px 26px rgba(0,199,144,.18); }
     .brand[aria-label="Pleat My Case"] .logo-circle:hover{ box-shadow:0 16px 32px rgba(0,199,144,.26); }
     .brand[aria-label="Pleat My Case"] .btn, .brand[aria-label="Pleat My Case"] .btn.alt{ background:#476B96; border-color:#476B96; color:#fff; }
     .brand[aria-label="Pleat My Case"] .btn:hover, .brand[aria-label="Pleat My Case"] .btn.alt:hover{ filter:brightness(1.05); box-shadow:0 10px 22px rgba(71,107,150,.25); }
     .brand[aria-label="Pleat My Case"] .btn:active, .brand[aria-label="Pleat My Case"] .btn.pressed{ filter:brightness(0.97); box-shadow:0 4px 12px rgba(71,107,150,.22); }
-  /* Carousel */
-    .carousel{position:relative; margin:14px 0 6px; border-radius:16px; overflow:hidden; border:2px solid rgba(0,0,0,.06); background:#fff}
-    #sourdough .carousel{border-color: var(--sd-accent); background: rgba(241,228,216,0.88)}
-    #sewing .carousel{border-color: var(--pmc-accent); background: rgba(255,255,255,0.90)}
-    .c-track{display:flex; transition:transform .4s ease; will-change:transform}
-    .c-slide{min-width:100%; height:320px; display:grid; place-items:center}
-    .c-slide img{width:100%; height:100%; object-fit:cover; display:block}
-    .c-prev,.c-next{position:absolute; top:50%; transform:translateY(-50%); border:0; background:rgba(0,0,0,.35); color:#fff; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; cursor:pointer}
-    .c-prev{left:8px} .c-next{right:8px}
-    .c-prev:hover,.c-next:hover{background:rgba(0,0,0,.5)}
-    .c-dots{display:flex; gap:6px; justify-content:center; padding:8px}
-    .c-dot{width:8px; height:8px; border-radius:50%; background:rgba(0,0,0,.25); cursor:pointer}
-    .c-dot[aria-selected="true"]{background:var(--accent)}
-    #sourdough .c-dot[aria-selected="true"]{background: var(--sd-accent)}
-    #sewing .c-dot[aria-selected="true"]{background: var(--pmc-accent)}
-  .grid .full-span{grid-column:1 / -1; margin-top:14px;}
-  @media(min-width:820px){ #sewing .grid{grid-template-columns:1fr 1fr 1fr; align-items:stretch} }
-  /* Align sewing grid items to top and remove inner carousel border/margin */
+
+    /* Carousel */
+    .carousel{ position:relative; margin:14px 0 6px; border-radius:16px; overflow:hidden; border:2px solid rgba(0,0,0,.06); background:#fff }
+    #sourdough .carousel{ border-color:var(--sd-accent); background:rgba(241,228,216,0.88) }
+    #sewing .carousel{ border-color:var(--pmc-accent); background:rgba(255,255,255,0.90) }
+    .c-track{ display:flex; transition:transform .4s ease; will-change:transform; position:relative; z-index:1 }
+    .c-slide{ min-width:100%; height:320px; display:grid; place-items:center }
+    .c-slide img{ width:100%; height:100%; object-fit:cover; display:block }
+    .c-prev,.c-next{ position:absolute; top:50%; transform:translateY(-50%); border:0; background:rgba(0,0,0,.35); color:#fff; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; cursor:pointer; z-index:3 }
+    .c-prev{ left:8px } .c-next{ right:8px }
+    .c-prev:hover,.c-next:hover{ background:rgba(0,0,0,.5) }
+    .c-dots{ position:absolute; left:0; right:0; bottom:8px; display:flex; gap:6px; justify-content:center; padding:8px 0; z-index:3 }
+    .c-dot{ width:8px; height:8px; border-radius:50%; background:rgba(0,0,0,.25); cursor:pointer }
+    .c-dot[aria-selected="true"]{ background:var(--accent) }
+    #sourdough .c-dot[aria-selected="true"]{ background:var(--sd-accent) }
+    #sewing .c-dot[aria-selected="true"]{ background:var(--pmc-accent) }
+
+    /* Sewing desktop: 3 equal columns, equal heights */
+    @media(min-width:820px){ #sewing .grid{ grid-template-columns:1fr 1fr 1fr; align-items:stretch } }
     #sewing .grid > * { align-self:stretch; }
-    #sewing .card .carousel{ border:0; background:transparent; margin:0; display:flex; flex-direction:column; flex:1; } 
     #sewing .grid > * > .card{ height:100%; display:flex; flex-direction:column; }
+    #sewing .card .carousel{ border:0; background:transparent; margin:0; display:flex; flex-direction:column; flex:1; }
     #sewing .card .c-track{ flex:1; }
     #sewing .card .c-slide{ height:100%; }
+    /* Edge-to-edge slideshow card in Sewing */
+    #sewing .media-card{ padding:0; overflow:hidden; display:flex; flex-direction:column; }
+    #sewing .media-card .carousel{ border:0; margin:0; border-radius:18px; height:100%; background:transparent; }
+    #sewing .media-card .c-track{ flex:1; }
+    #sewing .media-card .c-slide{ height:100%; }
+    #sewing .media-card .c-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* Mobile fixes: enforce >=25px spacing & prevent overlap in Sewing */
+    @media(max-width:819px){
+      #sewing .grid{ grid-template-columns:1fr; row-gap:0; column-gap:0; }
+      #sewing .grid > * > .card{ margin:0 0 25px; }
+      #sewing .grid > *:last-child > .card{ margin-bottom:0; }
+      #sewing .card{ position:relative; overflow:hidden; }
+      #sewing .carousel{ margin:0; }
+      /* also wrap SD logo/title to avoid clipping */
+      #sourdough .section-logo{ flex-wrap:wrap; }
+    }
+    /* OVERRIDES — fix sewing mobile overlap and unify section logos */
+    /* Logos: remove circle/border in BOTH sections and enlarge */
+    #sewing .section-logo-circle,
+    #sourdough .section-logo-circle{ border:0 !important; background:transparent !important; border-radius:0 !important; width:min(360px,100%) !important; height:auto !important; display:block !important; }
+    #sewing .section-logo-circle img,
+    #sourdough .section-logo-circle img{ width:100% !important; height:auto !important; object-fit:contain !important; display:block !important; }
+
+    /* Mobile: enforce >=25px true gap (no margin-collapses) */
+    @media(max-width:819px){
+      #sewing .grid{ grid-template-columns:1fr; gap:25px !important; }
+      #sewing .grid > * > .card{ margin:0 !important; }
+      #sewing .card{ position:relative; overflow:hidden; }
+    }
+  /* Bulletproof fix — Sewing cards on mobile: stack with real spacing */
+    @media(max-width:819px){
+      #sewing .grid{ display:block !important; }
+      #sewing .grid > *{ margin:0 0 25px 0 !important; }
+      #sewing .grid > *:last-child{ margin-bottom:0 !important; }
+    }
+    /* Unified section logos (Sourdough & Sewing): no circle/border, larger */
+    #sewing .section-logo-circle,
+    #sourdough .section-logo-circle{ border:0 !important; background:transparent !important; border-radius:0 !important; width:min(360px,100%) !important; height:auto !important; display:block !important; }
+    #sewing .section-logo-circle img,
+    #sourdough .section-logo-circle img{ width:100% !important; height:auto !important; object-fit:contain !important; display:block !important; }
+  /* === Slideshow sizing & centering overrides === */
+    /* Keep frames consistent, not dictated by first image */
+    #sewing .card .carousel{ flex:0 0 auto; }
+    #sewing .media-card .carousel{ height:auto; }
+
+    /* Fix heights per section */
+    #sewing .carousel .c-slide{ height:500px !important; }
+    #sourdough .carousel .c-slide{ height:350px !important; }
+
+    /* Center images both axes; scale to fit (contain), clip overflow */
+    #sewing .carousel .c-slide,
+    #sourdough .carousel .c-slide{ display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    #sewing .carousel .c-slide img,
+    #sourdough .carousel .c-slide img{ width:100%; height:100%; object-fit:cover; object-position:center center; display:block; }
 </style>
+  <meta name="theme-color" content="#fffdf8" />
+  <meta property="og:site_name" content="Nanna B’s" />
+  <link rel="preload" as="image" href="assets/baking/nannabsourdough-header.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Nanna B’s",
+        "url": "https://nannab.ca/"
+      },
+      {
+        "@type": "Bakery",
+        "name": "Nanna B’s Sourdough",
+        "url": "https://nannab.ca/#sourdough",
+        "image": "https://nannab.ca/assets/baking/Nanna-B-Sourdough-Logo.png",
+        "email": "nanna.b.sourdough@gmail.com",
+        "priceRange": "$",
+        "areaServed": ["Fort Macleod", "Lethbridge"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Fort Macleod",
+          "addressRegion": "AB",
+          "addressCountry": "CA"
+        },
+        "sameAs": ["https://www.facebook.com/profile.php?id=61574160251637"]
+      },
+      {
+        "@type": "ClothingStore",
+        "name": "Pleat My Case",
+        "url": "https://nannab.ca/#sewing",
+        "image": "https://nannab.ca/assets/sewing/Pleat-My-Case-Logo-Colour.png",
+        "email": "pleatmycase@gmail.com",
+        "priceRange": "$$",
+        "areaServed": ["Fort Macleod", "Lethbridge"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Fort Macleod",
+          "addressRegion": "AB",
+          "addressCountry": "CA"
+        },
+        "sameAs": ["https://www.facebook.com/PleatMyCaseCrystal"]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="sr-only" href="#sourdough">Skip to Sourdough</a>
@@ -208,7 +302,7 @@
         <div>
           <div class="card">
             <div class="section-logo">
-              <span class="section-logo-circle"><img src="assets/NannaBSourdough-Logo.jpg" alt="Nanna B’s Sourdough logo" /></span>
+              <span class="section-logo-circle"><img src="assets/baking/Nanna-B-Sourdough-Logo.png" alt="Nanna B’s Sourdough logo" /></span>
               <h2 id="sourdough-title">Nanna B’s Sourdough</h2>
             </div>
             <p><strong>Fresh, Homemade Sourdough from Nanna’s Kitchen</strong></p>
@@ -271,7 +365,7 @@
           </div>
         </aside>
         <div>
-          <div class="card">
+          <div class="card media-card">
             <div class="carousel" id="carousel-sewing" aria-label="Sewing slideshow">
               <button class="c-prev" aria-label="Previous">‹</button>
               <div class="c-track"></div>
@@ -280,6 +374,7 @@
             </div>
           </div>
         </div>
+      </div>
     </section>
   </main>
 
@@ -322,68 +417,132 @@
       el.addEventListener('keydown', e => { if(e.key === ' ' || e.key === 'Enter') add(); });
       el.addEventListener('keyup', remove);
     });
+
+    // Accessibility/SEO helpers
+    function filenameToAlt(path){
+      try{
+        const name = path.split('/').pop().replace(/\.[a-zA-Z0-9]+$/, '');
+        const readable = name.replace(/[-_]+/g,' ').trim();
+        return readable.charAt(0).toUpperCase()+readable.slice(1);
+      }catch(e){ return 'Gallery image'; }
+    }
+
     // Simple Carousel init
     function initCarousel(rootId, images){
       const root = document.getElementById(rootId);
       if(!root) return;
       const track = root.querySelector('.c-track');
       const dotsWrap = root.querySelector('.c-dots');
-      let idx = 0;
-      // Build slides & dots
-      images.forEach((src,i)=>{
-        const slide = document.createElement('div');
-        slide.className='c-slide';
-        const img = document.createElement('img');
-        img.loading='lazy'; img.alt=''; img.src=src;
-        slide.appendChild(img);
-        track.appendChild(slide);
-        const dot = document.createElement('button');
-        dot.className='c-dot'; dot.setAttribute('role','tab'); dot.setAttribute('aria-selected', i===0?'true':'false');
-        dot.addEventListener('click',()=>go(i));
-        dotsWrap.appendChild(dot);
-      });
       const prev = root.querySelector('.c-prev');
       const next = root.querySelector('.c-next');
-      function go(i){ idx = (i+images.length)%images.length; track.style.transform = `translateX(${-idx*100}%)`; [...dotsWrap.children].forEach((d,j)=>d.setAttribute('aria-selected', j===idx?'true':'false')); }
-      prev.addEventListener('click',()=>go(idx-1));
-      next.addEventListener('click',()=>go(idx+1));
-      // swipe
-      let sx=null; track.addEventListener('pointerdown',e=>{sx=e.clientX});
-      track.addEventListener('pointerup',e=>{ if(sx!==null){ const dx=e.clientX-sx; if(dx<-40) go(idx+1); if(dx>40) go(idx-1); sx=null; }});
-      // auto-play
-      setInterval(()=>go(idx+1), 5000);
+
+      let idx = 0;
+      const count = images.length;
+      const AUTOPLAY_MS = 5000;
+      let timer = null;
+      let sx = null; // swipe start X
+
+      // Build slides & dots
+      images.forEach((item,i)=>{
+        const { src, alt } = (typeof item === 'string')
+          ? { src: item, alt: filenameToAlt(item) }
+          : item;
+
+        const slide = document.createElement('div');
+        slide.className='c-slide';
+
+        const img = document.createElement('img');
+        img.loading='lazy';
+        img.decoding='async';
+        img.src = src;
+        img.alt = alt || filenameToAlt(src);
+
+        slide.appendChild(img);
+        track.appendChild(slide);
+
+        const dot = document.createElement('button');
+        dot.className='c-dot';
+        dot.setAttribute('role','tab');
+        dot.setAttribute('aria-selected', i===0?'true':'false');
+        dot.addEventListener('click',()=> goManual(i));
+        dotsWrap.appendChild(dot);
+      });
+
+      function go(i){
+        idx = (i + count) % count;
+        track.style.transform = `translateX(${-idx*100}%)`;
+        [...dotsWrap.children].forEach((d,j)=> d.setAttribute('aria-selected', j===idx ? 'true' : 'false'));
+      }
+
+      function stopAuto(){ if(timer){ clearInterval(timer); timer = null; } }
+      function startAuto(){
+        stopAuto();
+        if(count > 1){ timer = setInterval(()=> go(idx+1), AUTOPLAY_MS); }
+      }
+      function goManual(i){
+        go(i);
+        startAuto(); // reset timer after any manual interaction
+      }
+
+      // Prev/Next controls reset autoplay
+      if(prev) prev.addEventListener('click', ()=> goManual(idx-1));
+      if(next) next.addEventListener('click', ()=> goManual(idx+1));
+
+      // Swipe: pause on touch, resume/reset after gesture
+      track.addEventListener('pointerdown', e=>{ sx = e.clientX; stopAuto(); });
+      track.addEventListener('pointerup',   e=>{
+        if(sx !== null){
+          const dx = e.clientX - sx;
+          if(dx < -40) goManual(idx+1);
+          else if(dx > 40) goManual(idx-1);
+          else startAuto();
+          sx = null;
+        }
+      });
+
+      // Pause on hover/focus, resume on leave/blur (desktop nicety)
+      root.addEventListener('mouseenter', stopAuto);
+      root.addEventListener('mouseleave', startAuto);
+
+      // Page visibility: pause when tab hidden
+      document.addEventListener('visibilitychange', ()=>{
+        if(document.hidden) stopAuto(); else startAuto();
+      });
+
+      // Kick off autoplay
+      startAuto();
     }
 
-    // NOTE: Static sites can't read folder contents. Add your filenames below.
+    // Image lists
     const sewingImages = [
-      'assets/sewing/slideshow/01.jpg',
-      'assets/sewing/slideshow/02.jpg',
-      'assets/sewing/slideshow/03.jpg',
-      'assets/sewing/slideshow/04.jpg',
-      'assets/sewing/slideshow/05.jpg',
-      'assets/sewing/slideshow/06.jpg',
-      'assets/sewing/slideshow/07.jpg',
-      'assets/sewing/slideshow/08.jpg',
-      'assets/sewing/slideshow/09.jpg',
-      'assets/sewing/slideshow/10.jpg',
-      'assets/sewing/slideshow/11.jpg',
-      'assets/sewing/slideshow/12.jpg',
+      { src: 'assets/sewing/slideshow/adult-athletic-pants-floral-hoody-comfy-stretchy-hot-bald-guy.jpg', alt: 'Custom adult floral hoodie with athletic pants' },
+      { src: 'assets/sewing/slideshow/adult-hoody-custom-sewn-black-white-butterfly-pattern.jpg', alt: 'Custom adult hoodie with black-and-white butterfly pattern' },
+      { src: 'assets/sewing/slideshow/bulbasaur-homade-blanket-pajamas-pokemon-gift.jpg', alt: 'Bulbasaur Pokémon blanket and pajamas gift set, handmade' },
+      { src: 'assets/sewing/slideshow/cat-dog-pet-sling-carrier-custom-sewn.jpg', alt: 'Custom sewn pet sling carrier for cats or small dogs' },
+      { src: 'assets/sewing/slideshow/floral-kids-custom-dress-girls.jpg', alt: 'Girls’ custom floral dress' },
+      { src: 'assets/sewing/slideshow/kids-custom-hoodie-boys-geometric-pattern.jpg', alt: 'Boys’ custom hoodie with geometric pattern' },
+      { src: 'assets/sewing/slideshow/kids-custom-sewed-pajamas-boys.jpg', alt: 'Boys’ custom pajamas set, machine-sewn' },
+      { src: 'assets/sewing/slideshow/kids-girls-leapord-print-hoodie-cat-ears.jpg', alt: 'Girls’ leopard-print hoodie with cat ears' },
+      { src: 'assets/sewing/slideshow/kids-hoodie-pants-bear-pattern-green.jpg', alt: 'Kids’ green hoodie and pants with bear pattern' },
+      { src: 'assets/sewing/slideshow/kids-purple-floral-comfy-dress.jpg', alt: 'Kids’ purple floral everyday dress' },
+      { src: 'assets/sewing/slideshow/kids-toddler-spiderman-print-custom-shirt.jpg', alt: 'Toddler Spider-Man print custom shirt' },
+      { src: 'assets/sewing/slideshow/spiderman-gift-bundle-blanket-shirt-pants-marvel.jpg', alt: 'Spider-Man gift bundle — blanket, shirt, and pants' },
+      { src: 'assets/sewing/slideshow/toddler-kids-custom-christmas-pajamas-boys-tractors-trucks.jpg', alt: 'Boys’ Christmas pajamas with tractors and trucks' }
     ];
     const sourdoughImages = [
-      'assets/baking/slideshow/artisnal-loaf-classic-petals.jpg',
-      'bassets/baking/slideshow/lueberry-loaf.jpg',
-      'assets/baking/slideshow/choco-chip-cookies.jpg',
-      'assets/baking/slideshow/cinnamon-swirl.jpg',
-      'assets/baking/slideshow/double-chocolate-sourdough-loaf.jpg',
-      'assets/baking/slideshow/jalapeno-cheddar-artisnal-sourdough-loaf.jpg',
-      'assets/baking/slideshow/roasted-garlic-focaccia.jpg',
-      'assets/baking/slideshow/sourdough-banana-bread.jpg',
-      'assets/baking/slideshow/tri-loaf.jpg',
+      { src: 'assets/baking/slideshow/artisnal-loaf-classic-petals.jpg', alt: 'Artisanal sourdough loaf with classic petal scoring' },
+      { src: 'assets/baking/slideshow/blueberry-loaf.jpg', alt: 'Blueberry sourdough loaf' },
+      { src: 'assets/baking/slideshow/choco-chip-cookies.jpg', alt: 'Chocolate chip sourdough cookies, one dozen' },
+      { src: 'assets/baking/slideshow/cinnamon-swirl.jpg', alt: 'Cinnamon swirl sourdough loaf' },
+      { src: 'assets/baking/slideshow/double-chocolate-sourdough-loaf.jpg', alt: 'Double-chocolate sourdough loaf' },
+      { src: 'assets/baking/slideshow/jalapeno-cheddar-artisnal-sourdough-loaf.jpg', alt: 'Jalapeño cheddar artisanal sourdough loaf' },
+      { src: 'assets/baking/slideshow/roasted-garlic-focaccia.jpg', alt: 'Roasted garlic focaccia' },
+      { src: 'assets/baking/slideshow/sourdough-banana-bread.jpg', alt: 'Sourdough banana bread' },
+      { src: 'assets/baking/slideshow/tri-loaf.jpg', alt: 'Assorted sourdough loaves trio' }
     ];
 
     initCarousel('carousel-sewing', sewingImages);
     initCarousel('carousel-sourdough', sourdoughImages);
-
-</script>
+  </script>
 </body>
 </html>
